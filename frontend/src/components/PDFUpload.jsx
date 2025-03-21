@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Container, Form, Button, Spinner, Alert, Modal } from "react-bootstrap";
-
+import './Pdfupload.css'
 const PDFUpload = () => {
     const [file, setFile] = useState(null);
     const [charLimit, setCharLimit] = useState(200);
@@ -55,6 +55,12 @@ const PDFUpload = () => {
     };
 
     return (
+        <div className="home_main">
+
+       <video  autoPlay loop muted playsInline className="background-video">
+                <source src="/assets/background_vedio_2.mp4" type="video/mp4" />
+                </video>
+
         <Container className="mt-5 text-center">
             <h2>Upload PDF for Summarization</h2>
             
@@ -96,6 +102,7 @@ const PDFUpload = () => {
                 </Modal.Footer>
             </Modal>
         </Container>
+        </div>
     );
 };
 
