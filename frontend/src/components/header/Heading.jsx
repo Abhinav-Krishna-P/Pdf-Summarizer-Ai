@@ -5,13 +5,13 @@ import './header.css'
 function ColorSchemesExample() {
   return (
     <> 
-      <Navbar bg="primary" data-bs-theme="dark">
+      <Navbar bg="dark" data-bs-theme="dark">
         <Container>
-          <Navbar.Brand href="#home" style={{"fontSize":"20px"}}>PDF Summary</Navbar.Brand>
+          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Why Summarize</Nav.Link>
-            <Nav.Link href="#pricing">Tools Used</Nav.Link>
+            <Nav.Link href="#features">Features</Nav.Link>
+            <Nav.Link href="#pricing">Pricing</Nav.Link>
           </Nav>
         </Container>
       </Navbar>

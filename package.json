@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "motion": "^12.5.0",
+    "react-typed": "^2.0.12"
+  }
+}
