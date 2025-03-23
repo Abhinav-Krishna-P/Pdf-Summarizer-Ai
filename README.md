@@ -42,6 +42,7 @@ A web application that allows users to upload PDF files and generate concise sum
  
 # Preview images and functioning vedio
  ![Image](https://github.com/user-attachments/assets/28e5e903-6d6a-4a93-9db2-183a03a3284e)
+ ![Image](https://github.com/user-attachments/assets/0c63bdd8-3c4d-4cea-a7ad-735bae0c3b48)
  
 # Functioning video
 https://github.com/user-attachments/assets/a8c74981-ee9b-4249-bef3-7f30c5e7aeda
