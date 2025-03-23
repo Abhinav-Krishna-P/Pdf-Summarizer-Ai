@@ -26,7 +26,7 @@ A web application that allows users to upload PDF files and generate concise sum
 - **Django**
 - **PostgreSQL**
 - **REST API**
-- **Hemini LLM APi**
+- **Gemini LLM APi**
 
 ## How to run on Locally
 - step 1- Import All the Files to your local Storage
