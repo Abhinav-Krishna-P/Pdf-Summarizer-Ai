@@ -7,13 +7,13 @@ import "./Pdfupload.css";
 const PDFUpload = () => {
     const [file, setFile] = useState(null);
     const [fileName, setFileName] = useState("Choose a PDF File"); // For displaying selected file name
-    const [charLimit, setCharLimit] = useState(200);
+    const [charLimit, setCharLimit] = useState("");
     const [loading, setLoading] = useState(false);
     const [summary, setSummary] = useState("");
     const [error, setError] = useState(""); // Error message
     const [showModal, setShowModal] = useState(false);
     const [copyText, setCopyText] = useState("Copy");
-     const [fontColor, setFontColor] = useState('#000000'); // Default color: black
+    const [fontColor, setFontColor] = useState('#000000'); // Default color: black
 
     const handleFileChange = (e) => {
         const selectedFile = e.target.files[0];
@@ -36,7 +36,7 @@ const PDFUpload = () => {
         setFile(selectedFile);
         setFileName(selectedFile.name); // Display the selected file name
         setError(""); // Clear any previous error
-        console.log("✅ Selected File:", selectedFile);
+        console.log(" Selected File:", selectedFile);
     };
 
     const handleUpload = async () => {
@@ -52,7 +52,7 @@ const PDFUpload = () => {
         formData.append("char_limit", charLimit);
         formData.append('font_color', fontColor);
 
-        console.log("📤 Uploading File with Char Limit:", charLimit);
+        console.log("Uploading File with Char Limit:", charLimit);
 
         try {
             const response = await axios.post("http://127.0.0.1:8000/api/upload/", formData, {
@@ -61,12 +61,12 @@ const PDFUpload = () => {
                 }
             });
 
-            console.log("✅ API Response:", response.data);
+            console.log(" API Response:", response.data);
             setSummary(response.data.summary);
             setShowModal(true);
             setError("");
         } catch (err) {
-            console.log("❌ Upload Failed:", err.response ? err.response.data : err.message);
+            console.log(" Upload Failed:", err.response ? err.response.data : err.message);
             setError("Upload failed. Try again.");
         }
 
@@ -144,7 +144,7 @@ const PDFUpload = () => {
                 </div>
 
                 {/* Generate Summary Button */}
-                <Button variant="dark" onClick={handleUpload} className="mt-3" disabled={loading}>
+                <Button variant="dark" onClick={handleUpload} className="mt-3" disabled={loading}  size="lg">
                     {loading ? <Spinner animation="border" size="sm" /> : "Generate Summary"}
                 </Button>
 
@@ -152,14 +152,14 @@ const PDFUpload = () => {
                 {error && <Alert variant="danger" className="mt-3">{error}</Alert>}
 
                 {/* Summary Modal */}
-                <Modal show={showModal} onHide={() => setShowModal(false)} centered size="lg">
-                    <Modal.Header closeButton>
-                        <Modal.Title>Summarized Text</Modal.Title>
+                <Modal show={showModal} onHide={() => setShowModal(false)} centered size="lg" style={{color:"#2c1a15",borderRadius:"20px"}}>
+                    <Modal.Header closeButton style={{backgroundColor:"#999999"}}>
+                        <Modal.Title>Summarized Text(Paste the text to notepad/word)</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body style={{ maxHeight: "600px", overflowY: "auto", fontSize: "1.2rem" }}>
+                    <Modal.Body style={{ maxHeight: "600px", overflowY: "auto", fontSize: "1.2rem",backgroundColor:"#999999" }}>
                         <p>{summary}</p>
                     </Modal.Body>
-                    <Modal.Footer>
+                    <Modal.Footer style={{backgroundColor:"#999999"}}>
                         <Button variant="secondary" onClick={handleCopy}>
                             {copyText}
                         </Button>
